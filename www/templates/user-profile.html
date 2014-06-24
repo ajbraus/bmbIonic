@@ -1,0 +1,59 @@
+  <ion-list>
+		<div class="item item-divider">Personal Profile</div>
+		<div class="item item-text-wrap">
+			<h2>About</h2>
+			<p>{{user.about}}</p>
+		</div>
+		<div class="item item-text-wrap">
+			<h2>Goals</h2>
+			<p>{{user.goals}}</p>
+		</div>
+		<div class="item item-divider">Funding</div>
+		<div class="item item-text-wrap">
+			<h2>Funding Sought</h2>
+			<p>{{user.fundingSought}}</p>
+		</div>
+		<div class="item item-text-wrap">
+			<h2>Funding Purpose</h2>
+			<p>{{user.fundingPurpose}}</p>
+		</div>
+		<div class="item item-text-wrap">
+			<h2>Funding Priority</h2>
+			<p>{{user.fundingPriority}}</p>
+		</div>
+		<div class="item item-divider">Recommendation Profile</div>
+		<div class="item item-text-wrap">
+			<h2>Business Type</h2>
+			<p>{{user.businessType}}</p>
+		</div>
+		<div class="item item-text-wrap">
+			<h2>Customers</h2>
+			<p ng-repeat="customer in user.customers">
+				{{customer.name}}
+			</p>
+		</div>
+		<div class="item item-text-wrap">
+			<h2>Business Age (Yrs)</h2>
+			<p>{{user.businessAge}}</p>
+		</div>
+		<div class="item item-text-wrap">
+			<h2>Employees</h2>
+			<p>{{user.employees}}</p>
+		</div>
+		<div class="item item-text-wrap">
+			<h2>AR</h2>
+			<p>{{user.ar}}</p>
+		</div>
+		<div class="item item-text-wrap">
+			<h2>Revenue Size</h2>
+			<p>{{user.revenueSize}}</p>
+		</div>
+		<div class="item item-text-wrap">
+			<h2>Industry</h2>
+			<p>{{user.industry}}</p>
+		</div>
+		<div class="item item-text-wrap">
+			<h2>Does Business in</h2>
+			<p>{{user.doesBusinessIn}}</p>
+		</div>
+	</ion-list>
