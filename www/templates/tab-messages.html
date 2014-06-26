@@ -1,3 +1,13 @@
-<ion-view title="Messages">
-
+<ion-view title="Inbox" class="view-color-background">
+	<ion-content>
+	<div class="list">
+	    <a class="item item-avatar" ng-repeat="message in messages" href="#/tab/message/{{message.id}}">
+	      <img src="">
+	      <button class="button button-clear pull-right ion-chevron-right">
+	      </button>
+	      <p>cool}</p>
+	      <i class="message_user_name">{{message.name}}</i>
+	    </a>
+	</div>
+	</ion-content>
 </ion-view>
