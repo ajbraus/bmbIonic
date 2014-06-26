@@ -19,10 +19,10 @@ Navigation for all views
 		- Gear
 			- Edit Profile
 			- Settings
-			- About
+			- About [DONE]
 			- Contact
 			- Privacy
-			- Terms of Service
+			- Terms of Service [DONE]
 			- Logout
 ---------------------------------------------------------------------------------
 
