@@ -1,0 +1,77 @@
+Navigation for all views
+	- news feed 
+		- post detail [DONE]
+			- share (actionsheet)- PLUGIN FOR THIS
+			- give advice (modal) [DONE]
+			- user profile page (questioner & answerer) [DONE]
+				* (coresponding data)
+			- comment page [DONE]
+				*(comment input auton resize; mutiple lines)
+	- pipeline
+		- user detail [DONE]
+			- contact (modal) [DONE]
+	- Inbox
+		- conversation detail
+			- reply (modal)
+			- user profile (sender + user)
+		- user profile
+	- personal profile
+		- Gear
+			- Edit Profile
+			- Settings
+			- About
+			- Contact
+			- Privacy
+			- Terms of Service
+			- Logout
+---------------------------------------------------------------------------------
+
+Forms w cancel buttons
+	- Profile edit
+	- User settings edit
+	- New Comment
+	- New Answer
+	DONE - Contact
+	DONE - New Post
+	- Reply to Message
+
+Not signed in page w "connect with linkedin" button and "Register w Email" and "Login with Email" 
+	- session/new
+	- registration/new
+
+If banker, and not certified -> call to action to become certified.
+	- payment page w credit card form
+
+make icons green when selected
+
+user#profile -> interests on separate line
+show user cred and milestones everywhere
+
+bank vs. business - user.bank = true | false - ng-show="user.bank && !user.certified" - user.certified
+	- businesses show requested funding in profile, banks do not.
+	- banks see "get certified" button, businesses do not
+	- businesses can contact anyone, bankers can only contact people who follow them
+	- if bank is certified show gold certification icon on user
+
+------------------------------------------------------------------------------------
+Problems:
+
+tabs.html L79
+ng-modal:?
+
+controller.js L29:
+location path?
+
+tab-profile: EDIT button not responding (href? ng-click? )
+
+function for app.js? 
+
+app.js L196 function?
+
+voting: all votes increase
+
+Done:
+
+06.24: post-detail CSS
+
+

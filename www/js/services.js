@@ -58,20 +58,21 @@ angular.module('starter.services', [])
 })
 
 .factory("Post", function() {
-  
   var posts = [
     { id: 0,
       type: "Question",
       title: "At what stage in a business is it best to seek financing?",
       description: "I am founder of a Beverage Startup unlike any other on the market. Recently, I have finished product development and testing and now have a great tasting and effective product. I am pre-revenue at this point and I have a budget that would allow bootstrapping. What is the best and most effective way to approach large retailers to pitch and sell my product? At what point is it recommended to seek a loan? At what point does it become attractive for investors?",
-      answers_count: "3",
-      views: "136",
+      answers_count: 3,
+      views: 136,
+      vote_count: 3,
       user: {
         pic: "http://img1.wikia.nocookie.net/__cb20100604223615/shrek/images/8/87/Shrek_fierce.jpg",
-        name: "Daniel S.",
+        name: "Jackie W.",
         location:"WI", 
         position:"Banker", 
         org_name:"Wells Fargo",
+        id: 0,
       },
       tags: [
         { id: 0, name: "#" },
@@ -81,13 +82,32 @@ angular.module('starter.services', [])
         { id: 1, name: "#Money2" },
         { id: 2, name: "#Funding3"},
             ],
+      answers: [
+        { id: 0, 
+          body: "Daniel, I once worked on a beverage startup and found that the best strategy is to seek to do only one part of the problem. Instead of doing product, supply, distribution, branding, and marketing, just choose one of those. So if you have a recipe for an excellent beverage, talk to some private label suppliers and private distributors. If you can outsource those two parts then you can focus on product and marketing. Do you have any mentors?",
+          user: {
+             pic: "http://upload.wikimedia.org/wikipedia/en/thumb/e/e8/WC-2014-Brasil.svg/719px-WC-2014-Brasil.svg.png",
+             name: "Adam Meeks",
+             location:"NM", 
+             position:"Checker", 
+             org_name:"Bank of China",
+            },
+        },
+
+        { id: 1, body: "Adam, Thank you for the advice, it makes a lot of sense and I will look into private labeling and distribution. I currently do not have a mentor or someone with industry experience that would be able to offer advice." },
+        { id: 2, body: "#Funding is not what normal people would do- they borrow and never pay it back."},
+        { id: 0, body: "#Oh really?" },
+        { id: 1, body: "Yes that is actually the real case. Don't go to business school for that." },
+        { id: 2, body: "All right I won't."},
+            ],
     },
     { id: 1,
       type: "Milestone",
       title: " a business is it best to seek financing?",
       description: "I am founde Startup unlike any other on the market. Recently, I have finished product development and testing and now have a great tasting and effective product. I am pre-revenue at this point and I have a budget that would allow bootstrapping. What is the best and most effective way to approach large retailers to pitch and sell my product? At what point is it recommended to seek a loan? At what point does it become attractive for investors?",
-      answers_count: "3",
-      views: "136",
+      answers_count: 3,
+      views: 136,
+      vote_count: 3,
       user: {
         pic: "http://img1.wikia.nocookie.net/__cb20100604223615/shrek/images/8/87/Shrek_fierce.jpg",
         name: "Daniel S.",
@@ -108,8 +128,9 @@ angular.module('starter.services', [])
       type: "Annoucement",
       title: "At wk financing?",
       description: "I am founder of a Beverage Startup unlike any other on the market. Recently, I have finished product development and testing and now have a great tasting and effective product. I am pre-revenue at this point and I have a budget that would allow bootstrapping. What is the best and most effective way to approach large retailers to pitch and sell my product? At what point is it recommended to seek a loan? At what point does it become attractive for investors?",
-      answers_count: "3",
-      views: "136",
+      answers_count: 3,
+      views: 136,
+      vote_count: 3,
       user: {
         pic: "http://img1.wikia.nocookie.net/__cb20100604223615/shrek/images/8/87/Shrek_fierce.jpg",
         name: "Daniel S.",
@@ -140,4 +161,25 @@ angular.module('starter.services', [])
     }
   }
 
+})
+
+.factory('Message', function() {
+  var messages = {
+    id: 0,
+    name: "cool",
+    message: "hello Minxuan Cao",
+  }
+  return {
+    all: function() {
+      return messages;
+    },
+    get: function(messageId) {
+      // Simple index lookup
+      return messages[messageId];
+    }
+  }
+})
+
+.factory('Vote', function() {
+  // Might use a resource here that re
 });

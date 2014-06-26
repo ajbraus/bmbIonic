@@ -16,5 +16,29 @@
 
 .tag{
 	font-size: 15px;
-	color: #66cc41;
+	color: #009E3B;
 }
+
+.view-color-background{
+	background-color:#eeeeee;
+}
+
+.tab-color-background{
+	background-color:#ffffff;
+}
+
+.message_user_name{
+	font-size: 20px;
+}
+
+.bar-balanced{
+	background-color:#009E3B !important;
+}
+.bar-light{
+	border-bottom: 2px solid black;
+}
+
+.vote-count-position{
+	margin-bottom: 15px;
+}
+
