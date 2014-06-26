@@ -133,11 +133,20 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     })
 
     .state('tab.settings', {
-      url: '/profile-edit',
+      url: '/profile-settings',
       views: {
         'tab-profile': {
-          templateUrl: 'templates/profile-edit.html',
-          controller: 'ProfileEditCtrl'
+          templateUrl: 'templates/profile-settings.html',
+          controller: 'ProfileSettingsCtrl'
+        }
+      }
+    })
+
+    .state('tab.agreement', {
+      url: '/settings-agreement',
+      views: {
+        'tab-profile': {
+          templateUrl: 'templates/settings-agreement.html',
         }
       }
     })

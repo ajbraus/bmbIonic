@@ -94,7 +94,7 @@ angular.module('starter.controllers', [])
   }
 })
   
-.controller('ProfileEditCtrl', function() {
+.controller('ProfileSettingsCtrl', function() {
 })
 
 

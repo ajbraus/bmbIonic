@@ -53,6 +53,10 @@ bank vs. business - user.bank = true | false - ng-show="user.bank && !user.certi
 	- businesses can contact anyone, bankers can only contact people who follow them
 	- if bank is certified show gold certification icon on user
 
+Tag: when click, swipe left to create a news feed page about all the posts relating to the tag.
+
+Search bar
+
 ------------------------------------------------------------------------------------
 Problems:
 
