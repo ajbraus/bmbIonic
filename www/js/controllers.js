@@ -1,7 +1,25 @@
 angular.module('starter.controllers', [])
 
+
+.controller('LoginCtrl', function($scope, $state ) {
+
+  $scope.loginEmail = function() {
+    $state.go('login-email')
+  }
+})
+
+.controller('LoginEmailCtrl', function($scope, $state) {
+
+$scope.loginCheck = function() {
+  $state.go('tab.post')
+}
+
+})
+
 .controller('PostCtrl', function($scope, Post) {
-  $scope.posts = Post.all();
+  Post.query(function(data) {
+    $scope.posts = data
+  });
 
   $scope.newSubscription = function() {
     $state.go('subscription-new');
@@ -71,7 +89,7 @@ angular.module('starter.controllers', [])
     scope: $scope
   });
 
-  $scope.createPost_contact = function() {
+  $scope.createMessage = function() {
     console.log('Create Post_Advice', $scope.post);
     $location.path("/user/:userId")
     $scope.modal.hide();

@@ -1,0 +1,22 @@
+<ion-view title="Login With Email">
+  <ion-content>
+   <div class="list">
+     <label class="item item-input">
+       <span class="input-label">Username</span>
+       <input type="text" ng-model="user.username">
+     </label>
+     <label class="item item-input">
+       <span class="input-label">Password</span>
+       <input type="password" ng-model="user.password">
+     </label>
+   </div>
+   <div class="padding">
+     <button class="button button-block button-balanced" ng-click=loginCheck()>
+       Login
+     </button>
+     <p class="text-center">
+       <a href="#/forgot-password">Forgot password</a>
+     </p>
+   </div>
+  </ion-content>
+</ion-view>
