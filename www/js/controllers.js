@@ -74,8 +74,9 @@ $scope.loginCheck = function() {
 
 
 .controller('RelationshipsCtrl', function($scope, Users) {
-  $scope.showFollowing = true
-  $scope.users = Users.all();
+  Users.query(function(data) {
+    $scope.users = data
+  });
 })
 
 .controller('UserDetailCtrl', function($scope, $stateParams, $ionicModal, $location, Users) {
@@ -112,7 +113,25 @@ $scope.loginCheck = function() {
   }
 })
   
-.controller('ProfileSettingsCtrl', function() {
+.controller('ProfileSettingsCtrl', function($scope, $state, $ionicPopup) {
+
+  $scope.logoutConfirm = function() {
+     var confirmPopup = $ionicPopup.confirm({
+       title: 'Logout Confirmation',
+       template: 'Are you sure you want to logout?'
+     });
+     confirmPopup.then(function(res) {
+       if(res) {
+        $state.go('login')
+         console.log('User logout confirmed');
+       } else {
+         $state.go('tab.settings') 
+         console.log('User logout canceled');
+       }
+     });
+   };
+
+
 })
 
 
