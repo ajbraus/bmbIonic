@@ -1,46 +1,36 @@
 .bg-image{
-	position: fixed;
-	width:100%;
+    background-size: cover;
 	height:100%;
+    width:100%;
 }
 
 .img-home{
-	background-image: url("../img/home.png")
+	background-image: url("../img/iphone_background.png")
 }
 
-.btn-login-linkedin{  
-    margin-left: 10px;
-    margin-top: 400px;
-    width: 300px;
-    height: 30px;   
-    border: none; 
-    background-color: #0278b0;  
-    font-size:14px;
+.txt-logo{
     color: #ffffff;
 }
 
-.btn-register{  
-    margin-left: 10px;
-    margin-top: 440px;
+.button-linkedin{  
+    position: absolute;
+    bottom: 115px;
+    margin-left:10px;
     width: 300px;
-    height: 30px;   
-    border: none; 
+    border: none;
     background-color: #0278b0;  
-    font-size:14px;
     color: #ffffff;
 }
 
-.btn-login-email{  
-    margin-left: 10px;
-    margin-top: 100px;
-    width: 300px;
-    height: 30px;   
-    border: none; 
-    background-color: #0278b0;  
-    font-size:14px;
+.button-linkedin:active {
+    background: #026ea2;
     color: #ffffff;
 }
 
+.bottom-buttons {  
+    position: absolute;
+    bottom: 40px;
+}
 
 .profile-pic {
 	border-radius:100px !important;
@@ -85,9 +75,4 @@
 .vote-count-position{
 	margin-bottom: 15px;
 }
-
-.icon {
-	color: #009E3B;
-}
-
 
