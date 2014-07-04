@@ -57,6 +57,24 @@ angular.module('starter.services', [])
   }
 })
 
+// .factory('Post', function ($resource, HOST) {
+//   return $resource(HOST + '/posts/:id', { id: '@id' })
+// })
+
+// query
+// get
+// save
+// delete
+
+// Post.query(function(data) {
+//   $scope.posts = data
+// });
+
+// <div ng-repeat="post in posts">
+// {{}}
+// </div>
+
+
 .factory("Post", function() {
   
   var posts = [
