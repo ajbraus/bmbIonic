@@ -1,3 +1,37 @@
+.bg-image{
+    background-size: cover;
+	height:100%;
+    width:100%;
+}
+
+.img-home{
+	background-image: url("../img/iphone_background.png")
+}
+
+.txt-logo{
+    color: #ffffff;
+}
+
+.button-linkedin{  
+    position: absolute;
+    bottom: 115px;
+    margin-left:10px;
+    width: 300px;
+    border: none;
+    background-color: #0278b0;  
+    color: #ffffff;
+}
+
+.button-linkedin:active {
+    background: #026ea2;
+    color: #ffffff;
+}
+
+.bottom-buttons {  
+    position: absolute;
+    bottom: 40px;
+}
+
 .profile-pic {
 	border-radius:100px !important;
 }
@@ -16,5 +50,29 @@
 
 .tag{
 	font-size: 15px;
-	color: #66cc41;
+	color: #009E3B;
 }
+
+.view-color-background{
+	background-color:#eeeeee;
+}
+
+.tab-color-background{
+	background-color:#ffffff;
+}
+
+.message_user_name{
+	font-size: 20px;
+}
+
+.bar-balanced{
+	background-color:#009E3B !important;
+}
+.bar-light{
+	border-bottom: 2px solid black;
+}
+
+.vote-count-position{
+	margin-bottom: 15px;
+}
+

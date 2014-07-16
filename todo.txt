@@ -1,0 +1,218 @@
+Navigation for all views
+	- news feed 
+		- post detail [DONE]
+			- share (actionsheet)- PLUGIN FOR THIS
+			- give advice (modal) [DONE]
+			- user profile page (questioner & answerer) [DONE]
+				* (coresponding data)
+			- comment page [DONE]
+				*(comment input auton resize; mutiple lines)
+	- pipeline
+		- user detail [DONE]
+			- contact (modal) [DONE]
+	- Inbox
+		- conversation detail
+			- reply (modal)
+			- user profile (sender + user)
+		- user profile
+	- personal profile
+		- Gear
+			- Edit Profile
+			- Settings
+			- About [DONE]
+			- Contact
+			- Privacy
+			- Terms of Service [DONE]
+			- Logout
+
+
+structure tree
+
+user
+	name
+	cred_count
+
+
+conversation (array)
+	message
+		id
+		content
+
+
+* try query for users
+* create the log in page
+* try auth
+
+* try to finish javascript
+* go through to implement data (d3.js)
+* scratch for the DataServe 
+
+---------------------------------------------------------------------------------
+
+Forms w cancel buttons
+	- Profile edit
+	- User settings edit
+	- New Comment
+	- New Answer
+	DONE - Contact
+	DONE - New Post
+	- Reply to Message
+
+Not signed in page w "connect with linkedin" button and "Register w Email" and "Login with Email" 
+	- session/new
+	- registration/new
+
+If banker, and not certified -> call to action to become certified.
+	- payment page w credit card form
+
+make icons green when selected
+
+user#profile -> interests on separate line [DONE]
+show user cred and milestones everywhere
+
+bank vs. business - user.bank = true | false - ng-show="user.bank && !user.certified" - user.certified
+	- businesses show requested funding in profile, banks do not.
+	- banks see "get certified" button, businesses do not
+	- businesses can contact anyone, bankers can only contact people who follow them
+	- if bank is certified show gold certification icon on user
+
+Tag: when click, swipe left to create a news feed page about all the posts relating to the tag.
+
+Search bar
+
+get the api for YouTube course done
+
+check out teamtreehouse
+
+
+
+------------------------------------------------------------------------------------
+Problems:
+
+tabs.html L79
+ng-modal:?
+
+controller.js L29:
+location path?
+
+tab-profile: EDIT button not responding (href? ng-click? )
+
+function for app.js? 
+
+app.js L196 function?
+
+voting: all votes increase
+
+Done:
+
+06.24: post-detail CSS
+
+
+
+
+
+
+
+
+  var posts = [
+    { id: 0,
+      type: "Question",
+      title: "At what stage in a business is it best to seek financing?",
+      description: "I am founder of a Beverage Startup unlike any other on the market. Recently, I have finished product development and testing and now have a great tasting and effective product. I am pre-revenue at this point and I have a budget that would allow bootstrapping. What is the best and most effective way to approach large retailers to pitch and sell my product? At what point is it recommended to seek a loan? At what point does it become attractive for investors?",
+      answers_count: 3,
+      views: 136,
+      vote_count: 3,
+      user: {
+        pic: "http://img1.wikia.nocookie.net/__cb20100604223615/shrek/images/8/87/Shrek_fierce.jpg",
+        name: "Jackie W.",
+        location:"WI", 
+        position:"Banker", 
+        org_name:"Wells Fargo",
+        id: 0,
+      },
+      tags: [
+        { id: 0, name: "#" },
+        { id: 1, name: "#Money" },
+        { id: 2, name: "#Funding"},
+        { id: 0, name: "#Startup1" },
+        { id: 1, name: "#Money2" },
+        { id: 2, name: "#Funding3"},
+            ],
+      answers: [
+        { id: 0, 
+          body: "Daniel, I once worked on a beverage startup and found that the best strategy is to seek to do only one part of the problem. Instead of doing product, supply, distribution, branding, and marketing, just choose one of those. So if you have a recipe for an excellent beverage, talk to some private label suppliers and private distributors. If you can outsource those two parts then you can focus on product and marketing. Do you have any mentors?",
+          user: {
+             pic: "http://upload.wikimedia.org/wikipedia/en/thumb/e/e8/WC-2014-Brasil.svg/719px-WC-2014-Brasil.svg.png",
+             name: "Adam Meeks",
+             location:"NM", 
+             position:"Checker", 
+             org_name:"Bank of China",
+            },
+        },
+
+        { id: 1, body: "Adam, Thank you for the advice, it makes a lot of sense and I will look into private labeling and distribution. I currently do not have a mentor or someone with industry experience that would be able to offer advice." },
+        { id: 2, body: "#Funding is not what normal people would do- they borrow and never pay it back."},
+        { id: 0, body: "#Oh really?" },
+        { id: 1, body: "Yes that is actually the real case. Don't go to business school for that." },
+        { id: 2, body: "All right I won't."},
+            ],
+    },
+    { id: 1,
+      type: "Milestone",
+      title: " a business is it best to seek financing?",
+      description: "I am founde Startup unlike any other on the market. Recently, I have finished product development and testing and now have a great tasting and effective product. I am pre-revenue at this point and I have a budget that would allow bootstrapping. What is the best and most effective way to approach large retailers to pitch and sell my product? At what point is it recommended to seek a loan? At what point does it become attractive for investors?",
+      answers_count: 3,
+      views: 136,
+      vote_count: 3,
+      user: {
+        pic: "http://img1.wikia.nocookie.net/__cb20100604223615/shrek/images/8/87/Shrek_fierce.jpg",
+        name: "Daniel S.",
+        location:"WI", 
+        position:"Banker", 
+        org_name:"Wells Fargo",
+      },
+      tags: [
+        { id: 0, name: "#" },
+        { id: 1, name: "#Money" },
+        { id: 2, name: "#Funding"},
+        { id: 0, name: "#Startup1" },
+        { id: 1, name: "#Money2" },
+        { id: 2, name: "#Funding3"},
+            ],
+    },
+    { id: 2,
+      type: "Annoucement",
+      title: "At wk financing?",
+      description: "I am founder of a Beverage Startup unlike any other on the market. Recently, I have finished product development and testing and now have a great tasting and effective product. I am pre-revenue at this point and I have a budget that would allow bootstrapping. What is the best and most effective way to approach large retailers to pitch and sell my product? At what point is it recommended to seek a loan? At what point does it become attractive for investors?",
+      answers_count: 3,
+      views: 136,
+      vote_count: 3,
+      user: {
+        pic: "http://img1.wikia.nocookie.net/__cb20100604223615/shrek/images/8/87/Shrek_fierce.jpg",
+        name: "Daniel S.",
+        location:"WI", 
+        position:"Banker", 
+        org_name:"Wells Fargo",
+      },
+      tags: [
+        { id: 0, name: "#" },
+        { id: 1, name: "#Money" },
+        { id: 2, name: "#Funding"},
+        { id: 0, name: "#Startup1" },
+        { id: 1, name: "#Money2" },
+        { id: 2, name: "#Funding3"},
+            ],
+    },
+  
+
+  ];
+
+  return {
+    all: function() {
+      return posts;
+    },
+    get: function(postId) {
+      // Simple index lookup
+      return posts[postId];
+    }
+  }

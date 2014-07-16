@@ -5,7 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'ngResource', 'starter.controllers',  'starter.services'])
+
+.constant('HOST', 'http://www.bankmybiz.com/api/v1')
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -49,8 +51,20 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
+    .state('login', {
+      url: "/login",
+      templateUrl: "templates/login.html",
+      controller: 'LoginCtrl'
+    })
+
+    .state('login-email', {
+      url: "/login-email",
+      templateUrl: "templates/login-email.html",
+      controller: 'LoginEmailCtrl'
+    })
+
     .state('tab.post-detail', {
-      url: '/post/:postId',
+      url: '/post-detail/:postId',
       views: {
         'tab-post': {
           templateUrl: 'templates/post-detail.html',
@@ -58,6 +72,28 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+
+    .state('tab.post-user', {
+      url: '/post-user/:userId',
+      views: {
+        'tab-post': {
+          templateUrl: 'templates/post-user.html',
+          controller: 'PostUserCtrl'
+        }
+      }
+    })
+
+
+    .state('tab.post-comment', {
+      url: '/post-comment',
+      views: {
+        'tab-post': {
+          templateUrl: 'templates/post-comment.html',
+          controller: 'PostCommentCtrl'
+        }
+      }
+    })
+
 
     .state('tab.relationships', {
       url: '/relationships',
@@ -79,6 +115,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
+    .state('tab.message-detail', {
+      url: '/message/:messageId',
+      views: {
+        'tab-messages': {
+          templateUrl: 'templates/message-detail.html',
+          controller: 'MessageDetailCtrl'
+        }
+      }
+    })
+
+
     .state('tab.user-detail', {
       url: '/user/:userId',
       views: {
@@ -99,7 +146,35 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
+    .state('tab.settings', {
+      url: '/profile-settings',
+      views: {
+        'tab-profile': {
+          templateUrl: 'templates/profile-settings.html',
+          controller: 'ProfileSettingsCtrl'
+        }
+      }
+    })
+
+    .state('tab.agreement', {
+      url: '/settings-agreement',
+      views: {
+        'tab-profile': {
+          templateUrl: 'templates/settings-agreement.html',
+        }
+      }
+    })
+
+    .state('tab.about', {
+      url: '/settings-about',
+      views: {
+        'tab-profile': {
+          templateUrl: 'templates/settings-about.html',
+        }
+      }
+    })
+
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/post');
+  $urlRouterProvider.otherwise('/login');
 
 });
