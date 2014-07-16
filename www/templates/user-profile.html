@@ -2,7 +2,7 @@
 		<div class="item item-divider">Personal Profile</div>
 		<div class="item item-text-wrap">
 			<h2>About</h2>
-			<p>{{user.about}}</p>
+			<p>{{user.bio}}</p>
 		</div>
 		<div class="item item-text-wrap">
 			<h2>Goals</h2>
@@ -24,36 +24,35 @@
 		<div class="item item-divider">Recommendation Profile</div>
 		<div class="item item-text-wrap">
 			<h2>Business Type</h2>
-			<p>{{user.businessType}}</p>
+			<p>{{user.business_types}}</p>
 		</div>
 		<div class="item item-text-wrap">
 			<h2>Customers</h2>
-			<p ng-repeat="customer in user.customers">
-				{{customer.name}}
+				{{user.customer_types}}
 			</p>
 		</div>
 		<div class="item item-text-wrap">
 			<h2>Business Age (Yrs)</h2>
-			<p>{{user.businessAge}}</p>
+			<p>{{user.ages}}</p>
 		</div>
 		<div class="item item-text-wrap">
 			<h2>Employees</h2>
-			<p>{{user.employees}}</p>
+			<p>{{user.employee_sizes}}</p>
 		</div>
 		<div class="item item-text-wrap">
 			<h2>AR</h2>
-			<p>{{user.ar}}</p>
+			<p>{{user.accounts_receivables}}</p>
 		</div>
 		<div class="item item-text-wrap">
 			<h2>Revenue Size</h2>
-			<p>{{user.revenueSize}}</p>
+			<p>{{user.revenue_sizes}}</p>
 		</div>
 		<div class="item item-text-wrap">
 			<h2>Industry</h2>
-			<p>{{user.industry}}</p>
+			<p>{{user.industries}}</p>
 		</div>
 		<div class="item item-text-wrap">
 			<h2>Does Business in</h2>
-			<p>{{user.doesBusinessIn}}</p>
+			<p>{{user.locations}}</p>
 		</div>
 	</ion-list>

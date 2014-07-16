@@ -6,7 +6,7 @@
 		<div class="card">
 		  <div class="item item-text-wrap">
 		    <h2>{{post.title}}</h2> 
-		    <p>{{post.description}}</p>
+		    <p>{{post.content}}</p>
 		  </div>
 			<div class="item">
 				<div class="pull-left">
@@ -20,8 +20,8 @@
 			</div>
 
 			<a class="item item-avatar" href="#/tab/post-user/{{user.id}}">
-				<img src="{{post.user.pic}}" class="profile-pic">
-			  <h2>{{post.user.name}},  {{post.user.location}}</h2>
+				<img src="{{post.user.profile_image_url}}" class="profile-pic">
+			  <h2>{{post.user.first_name_with_last_initial}},  {{post.user.hq_state}}</h2>
 			  <p>{{post.user.position}} at {{post.user.org_name}}</p>
 			</a>
 		</div>
@@ -37,7 +37,7 @@
 			<div class="item">
 				<div class="pull-left">
 					<a class="button button-clear button-balanced icon ion-arrow-up-b" ng-click="votePostUp()"></a>
-					<span class="vote-count-position">{{post.vote_count}}</span>
+					<span class="vote-count-position">{{answer.vote_count}}</span>
 					<a class="button button-clear button-balanced icon ion-arrow-down-b" ng-click="votePostDown()"></a>
 				</div>
 				<div class="pull-right">
@@ -45,8 +45,8 @@
 				</div>	
 			</div>
 			<a class="item item-avatar" href="#/tab/post-user/{{user.id}}">
-	  		<img src="{{answer.user.pic}}", class="profile-pic">
-	  	  <h2>{{answer.user.name}},  {{answer.user.location}}</h2>
+	  		<img src="{{answer.user.profile_image_url}}", class="profile-pic">
+	  	  <h2>{{answer.user.first_name_with_last_initial}},  {{answer.user.location}}</h2>
 	  	  <p>{{answer.user.position}} at {{answer.user.org_name}}</p>
     	</a>
 		</div>

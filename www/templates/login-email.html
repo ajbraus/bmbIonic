@@ -1,9 +1,9 @@
-<ion-view title="Login With Email">
+<ion-view title="Login">
   <ion-content>
    <div class="card">
      <label class="item item-input">
        <span class="input-label">Email</span>
-       <input type="text" ng-model="user.username">
+       <input type="text" ng-model="user.email">
      </label>
      <label class="item item-input">
        <span class="input-label">Password</span>
@@ -11,7 +11,7 @@
      </label>
    </div>
    <div class="padding">
-     <button class="button button-block button-balanced" ng-click="loginCheck()">
+     <button class="button button-block button-energized" ng-click="login()">
        Login
      </button>
      <p class="text-center">

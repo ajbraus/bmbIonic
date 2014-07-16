@@ -1,0 +1,40 @@
+<ion-view title="Register">
+  <ion-content>
+   <div class="card">
+     <label class="item item-input">
+       <span class="input-label">Fist Name</span>
+       <input type="text" ng-model="user.firstName">
+     </label>
+     <label class="item item-input">
+       <span class="input-label">Last Name</span>
+       <input type="text" ng-model="user.lastName">
+     </label>
+     <label class="item item-input">
+       <span class="input-label">Email</span>
+       <input type="text" ng-model="user.email">
+     </label>
+     <button class="button button-balanced">lender</button>
+     <label class="item item-input">
+       <span class="input-label">Organization Name</span>
+       <input type="text" ng-model="user.org_name">
+     </label>
+     <label class="item item-input">
+       <span class="input-label">Zip Code</span>
+       <input type="text" ng-model="user.zipCode">
+     </label>
+     <label class="item item-input">
+       <span class="input-label">Position</span>
+       <input type="text" ng-model="user.position">
+     </label>
+      <label class="item item-input">
+       <span class="input-label">Password</span>
+       <input type="password" ng-model="user.password">
+     </label>
+   </div>
+   <div class="padding">
+     <button class="button button-block button-energized" ng-click="login()">
+       Login
+     </button>
+   </div>
+  </ion-content>
+</ion-view>
