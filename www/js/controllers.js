@@ -174,6 +174,18 @@ angular.module('bankmybiz.controllers', [])
   
 .controller('ProfileSettingsCtrl', function($scope, $state, $ionicPopup) {
 
+  $scope.login = function() {
+    User.sign_out({}, $scope.user,
+      function(data) {   
+        $state.go('tab.post');
+      },
+      function(data) {
+        var message = data.data.error
+        console.log(message);
+        navigator.notification.alert(message, null, 'Alert', 'OK');
+      }
+    );
+  };
   $scope.logoutConfirm = function() {
      var confirmPopup = $ionicPopup.confirm({
        title: 'Logout Confirmation',
@@ -181,7 +193,8 @@ angular.module('bankmybiz.controllers', [])
      });
      confirmPopup.then(function(res) {
        if(res) {
-        $state.go('login')
+        localStorage.clear();
+        $state.go('login');
          console.log('User logout confirmed');
        } else {
          $state.go('tab.settings') 
