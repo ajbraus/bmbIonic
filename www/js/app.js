@@ -1,13 +1,14 @@
-// Ionic Starter App
+// Ionic bankmybiz App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// 'bankmybiz' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ngResource', 'starter.controllers',  'starter.services'])
+// 'bankmybiz.services' is found in services.js
+// 'bankmybiz.controllers' is found in controllers.js
+angular.module('bankmybiz', ['ionic', 'ngResource', 'bankmybiz.controllers',  'bankmybiz.services', 'bankmybiz.interceptors'])
 
 .constant('HOST', 'http://www.bankmybiz.com/api/v1')
+
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -23,6 +24,7 @@ angular.module('starter', ['ionic', 'ngResource', 'starter.controllers',  'start
   });
 })
 
+
 .config(function($stateProvider, $urlRouterProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
@@ -30,6 +32,8 @@ angular.module('starter', ['ionic', 'ngResource', 'starter.controllers',  'start
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
+
+
 
     // setup an abstract state for the tabs directive
     .state('tab', {
@@ -57,6 +61,13 @@ angular.module('starter', ['ionic', 'ngResource', 'starter.controllers',  'start
       controller: 'LoginCtrl'
     })
 
+
+    .state('register-email', {
+      url: "/register-email",
+      templateUrl: "templates/register-email.html",
+      controller: 'RegisterEmailCtrl'
+    })
+
     .state('login-email', {
       url: "/login-email",
       templateUrl: "templates/login-email.html",
@@ -78,7 +89,7 @@ angular.module('starter', ['ionic', 'ngResource', 'starter.controllers',  'start
       views: {
         'tab-post': {
           templateUrl: 'templates/post-user.html',
-          controller: 'PostUserCtrl'
+          controller: 'UserDetailCtrl'
         }
       }
     })

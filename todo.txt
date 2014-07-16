@@ -1,3 +1,19 @@
+Critical Path:
+
+the fewest step to make it go Live.
+
+
+
+OAuth for linkedin
+Get users under the same account
+styling
+
+
+Login:
+
+
+submitting user.email 
+
 Navigation for all views
 	- news feed 
 		- post detail [DONE]

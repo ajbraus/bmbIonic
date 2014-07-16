@@ -1,11 +1,11 @@
 <ion-list>
 	<div class="item item-text-wrap item-thumbnail-left" href="#">
-		<img src="{{user.pic}}" class="profile-pic"/>
-		<h2>{{user.name}},  {{user.location}}</h2>
-		<p>{{user.position}} at {{user.company}}</p>
+		<img src="{{user.profile_picture_url}}" class="profile-pic"/>
+		<h2>{{user.name}},  {{user.hq_state}}</h2>
+		<p>{{user.position}} at {{user.org_name}}</p>
 		<div class="row">
-			<div class="col icon ion-pricetags">{{user.credit}}</div>
-			<div class="col icon ion-arrow-up-a">{{user.post_count}}</div>
+			<div class="col icon ion-pricetags">{{user.cred_count}}</div>
+			<div class="col icon ion-arrow-up-a">{{user.milestones_count}}</div>
 		</div>
 	</div>
 	<div class="item item-text-wrap">

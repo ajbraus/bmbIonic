@@ -1,18 +1,76 @@
-angular.module('starter.controllers', [])
+angular.module('bankmybiz.controllers', [])
 
 
-.controller('LoginCtrl', function($scope, $state ) {
+.controller('LoginCtrl', function($scope, $state, $timeout, AuthService) {
+
+  $timeout(function() {
+    AuthService.checkLogin();
+  });
+
+  $scope.$on('app.loggedIn', function(event) {
+    console.log('LOGGED IN!');
+    $state.go("tab.post");
+  });
+
+  $scope.$on('app.loggedOut', function(event) {
+   console.log('NOT LOGGED IN!');
+  });
 
   $scope.loginEmail = function() {
     $state.go('login-email')
   }
+
+  $scope.registerEmail = function() {
+    $state.go('register-email')
+  }
 })
 
-.controller('LoginEmailCtrl', function($scope, $state) {
 
-$scope.loginCheck = function() {
-  $state.go('tab.post')
-}
+.controller('RegisterEmailCtrl', function($scope, $state) {
+  $scope.login = function() {
+    User.sign_in({},{"user": $scope.user},
+      function(data) {
+        localStorage.setItem("bmb_auth_token", data.auth_token);     
+        $state.go('tab.post');
+      },
+      function(data) {
+        var message = data.data.error
+        console.log(message);
+        navigator.notification.alert(message, null, 'Alert', 'OK');
+      }
+    );
+  };
+
+  $scope.user = {
+    'email': '',
+    'password': ''
+  };
+
+})
+
+
+.controller('LoginEmailCtrl', function($scope, $state, User) {
+  
+  $scope.user = {
+    'name': '',
+    'email': '',
+    'org_name': '',
+    'zip_code':'',
+    'password': '',
+  };
+  $scope.login = function() {
+    User.sign_in({}, $scope.user,
+      function(data) {
+        localStorage.setItem("bmb_auth_token", data.auth_token);     
+        $state.go('tab.post');
+      },
+      function(data) {
+        var message = data.data.error
+        console.log(message);
+        navigator.notification.alert(message, null, 'Alert', 'OK');
+      }
+    );
+  };
 
 })
 
@@ -26,13 +84,9 @@ $scope.loginCheck = function() {
   }
 })
 
-.controller('PostUserCtrl', function($scope, $stateParams, Post, Users) {
-  $scope.post = Post.get($stateParams.postId);
-  $scope.user = Users.get($stateParams.userId)
-})
-
 .controller('PostDetailCtrl', function($scope, $stateParams, $ionicModal, $location, Post, Vote) {
-  $scope.post = Post.get($stateParams.postId);
+  
+  $scope.post = Post.get({ id: $stateParams.postId });
 
   var vote = {
     type: "Post",
@@ -67,20 +121,23 @@ $scope.loginCheck = function() {
   };
 })
 
-.controller('PostCommentCtrl', function($scope, $stateParams, Post, Users) {
+.controller('PostCommentCtrl', function($scope, $stateParams, Post, User) {
   $scope.post = Post.get($stateParams.postId);
-  $scope.user = Users.get($stateParams.userId)
+  $scope.user = User.get($stateParams.userId)
 })
 
 
-.controller('RelationshipsCtrl', function($scope, Users) {
-  Users.query(function(data) {
-    $scope.users = data
-  });
+.controller('RelationshipsCtrl', function($scope, Relationship) {
+  console.log(localStorage.getItem("bmb_auth_token"))
+
+  var auth_token = localStorage.getItem("bmb_auth_token")
+  $scope.relationship = Relationship.get({id: auth_token});
+
 })
 
-.controller('UserDetailCtrl', function($scope, $stateParams, $ionicModal, $location, Users) {
-  $scope.user = Users.get($stateParams.userId);
+.controller('UserDetailCtrl', function($scope, $stateParams, $ionicModal, $location, User) {
+
+  $scope.user = User.get({ id: $stateParams.userId });
 
   $ionicModal.fromTemplateUrl('modal_contact.html', function(modal) {
     $scope.modal = modal;
@@ -106,8 +163,10 @@ $scope.loginCheck = function() {
   $scope.message = Message.get($stateParams.messageId);
 })
 
-.controller('ProfileCtrl', function($scope, $stateParams, $state, $ionicActionSheet, Users) {
-  $scope.user = Users.get(0);
+.controller('ProfileCtrl', function($scope, $stateParams, $state, $ionicActionSheet, User) {
+  console.log(localStorage.getItem("bmb_auth_token"))
+  var auth_token = localStorage.getItem("bmb_auth_token")
+  $scope.user = User.get({id: auth_token});
   $scope.settings = function() {
     $state.go('tab.settings');
   }
@@ -133,8 +192,6 @@ $scope.loginCheck = function() {
 
 
 })
-
-
     
 .controller('TabsCtrl', function($scope, $ionicModal, $location) {
 
