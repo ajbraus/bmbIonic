@@ -1,6 +1,26 @@
 Critical Path:
 
-the fewest step to make it go Live.
+sign up page
+sign in page
+  forgot password link [check]
+get verified (maybe not in V1.0)
+share button
+voting
+post advice submit
+comment
+  comment page
+  post comment
+pipeline auth_token
+post submit
+inbox
+Settings
+  update profile
+  contact
+  privacy
+CSS
+iCon
+
+
 
 
 

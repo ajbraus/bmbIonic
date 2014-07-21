@@ -67,13 +67,7 @@ angular.module('bankmybiz', ['ionic', 'ngResource', 'bankmybiz.controllers',  'b
       templateUrl: "templates/register-email.html",
       controller: 'RegisterEmailCtrl'
     })
-
-    .state('login-email', {
-      url: "/login-email",
-      templateUrl: "templates/login-email.html",
-      controller: 'LoginEmailCtrl'
-    })
-
+    
     .state('tab.post-detail', {
       url: '/post-detail/:postId',
       views: {

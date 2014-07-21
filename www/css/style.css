@@ -1,3 +1,41 @@
+.ion-ios7-chatboxes {
+	color: #009E3B;
+}
+
+.ion-ios7-people {
+	color: #009E3B;
+}
+
+.ion-ios7-compose {
+	color: #009E3B;
+}
+
+.ion-ios7-chatboxes {
+	color: #009E3B;
+}
+
+.ion-ios7-email {
+	color: #009E3B;
+}
+
+.ion-ios7-person {
+	color: #009E3B;
+}
+
+.button-action {
+	background-color: #009E3B;
+	color: white;
+}
+
+.button-action:active {
+	background-color: #009538; 
+	color: white;
+}
+
+.ion-arrow-down-b {
+	color: red;
+}
+
 .bg-image{
     background-size: cover;
 	height:100%;
@@ -12,24 +50,19 @@
     color: #ffffff;
 }
 
-.button-linkedin{  
-    position: absolute;
-    bottom: 115px;
-    margin-left:10px;
-    width: 300px;
-    border: none;
-    background-color: #0278b0;  
-    color: #ffffff;
+.login-form {
+	bottom: 125px;
+	width: 300px;
+	position: absolute;
 }
 
-.button-linkedin:active {
-    background: #026ea2;
-    color: #ffffff;
+.text-position {
+	position: absolute;
 }
 
 .bottom-buttons {  
     position: absolute;
-    bottom: 40px;
+    bottom: 60px;
 }
 
 .profile-pic {
