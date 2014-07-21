@@ -1,7 +1,7 @@
 angular.module('bankmybiz.controllers', [])
 
 
-.controller('LoginCtrl', function($scope, $state, $timeout, AuthService) {
+.controller('LoginCtrl', function($scope, $state, $timeout, AuthService, User) {
 
   $timeout(function() {
     AuthService.checkLogin();
@@ -16,48 +16,16 @@ angular.module('bankmybiz.controllers', [])
    console.log('NOT LOGGED IN!');
   });
 
-  $scope.loginEmail = function() {
-    $state.go('login-email')
-  }
-
   $scope.registerEmail = function() {
     $state.go('register-email')
   }
-})
-
-
-.controller('RegisterEmailCtrl', function($scope, $state) {
-  $scope.login = function() {
-    User.sign_in({},{"user": $scope.user},
-      function(data) {
-        localStorage.setItem("bmb_auth_token", data.auth_token);     
-        $state.go('tab.post');
-      },
-      function(data) {
-        var message = data.data.error
-        console.log(message);
-        navigator.notification.alert(message, null, 'Alert', 'OK');
-      }
-    );
-  };
 
   $scope.user = {
     'email': '',
     'password': ''
+
   };
 
-})
-
-
-.controller('LoginEmailCtrl', function($scope, $state, User) {
-  
-  $scope.user = {
-    'name': '',
-    'email': '',
-    'org_name': '',
-    'zip_code':'',
-    'password': '',
-  };
   $scope.login = function() {
     User.sign_in({}, $scope.user,
       function(data) {
@@ -73,6 +41,37 @@ angular.module('bankmybiz.controllers', [])
   };
 
 })
+
+
+.controller('RegisterEmailCtrl', function($scope, $state, User) {
+  
+  $scope.user = {
+    'first name': '',
+    'last name': '',
+    'email': '',
+    'org_name': '',
+    'zipcode': '',
+    'position': '',
+    'password': ''
+  };
+
+  $scope.signup = function() {
+    User.sign_up({},{"user": $scope.user},
+      function(data) {
+        localStorage.setItem("bmb_auth_token", data.auth_token);     
+        $state.go('tab.post');
+      },
+      function(data) {
+        var message = data.data.error
+        console.log(message);
+        navigator.notification.alert(message, null, 'Alert', 'OK');
+      }
+    );
+  };
+
+
+})
+
 
 .controller('PostCtrl', function($scope, Post) {
   Post.query(function(data) {
@@ -174,6 +173,18 @@ angular.module('bankmybiz.controllers', [])
   
 .controller('ProfileSettingsCtrl', function($scope, $state, $ionicPopup) {
 
+  $scope.login = function() {
+    User.sign_out({}, $scope.user,
+      function(data) {   
+        $state.go('tab.post');
+      },
+      function(data) {
+        var message = data.data.error
+        console.log(message);
+        navigator.notification.alert(message, null, 'Alert', 'OK');
+      }
+    );
+  };
   $scope.logoutConfirm = function() {
      var confirmPopup = $ionicPopup.confirm({
        title: 'Logout Confirmation',
@@ -181,7 +192,8 @@ angular.module('bankmybiz.controllers', [])
      });
      confirmPopup.then(function(res) {
        if(res) {
-        $state.go('login')
+        localStorage.clear();
+        $state.go('login');
          console.log('User logout confirmed');
        } else {
          $state.go('tab.settings') 
@@ -193,7 +205,7 @@ angular.module('bankmybiz.controllers', [])
 
 })
     
-.controller('TabsCtrl', function($scope, $ionicModal, $location) {
+.controller('TabsCtrl', function($scope, $state, $ionicModal, $location, Post) {
 
   $scope.post = {};
 
@@ -206,8 +218,20 @@ angular.module('bankmybiz.controllers', [])
   });
 
   $scope.createPost = function() {
-    console.log('Create Post', $scope.post);
-    $location.path("/tab/post")
+      Post.save({},$scope.post,
+        function(data) {
+          localStorage.setItem("bmb_auth_token", data.auth_token);     
+          $state.go('tab.post');
+        },
+        function(data) {
+          console.log(data)
+          
+          // var message = data.data.error
+          // console.log(message);
+          // navigator.notification.alert(message, null, 'Alert', 'OK');
+        
+        }
+      );
     $scope.modal.hide();
   };
 

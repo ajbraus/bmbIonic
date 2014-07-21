@@ -2,7 +2,7 @@
   <ion-content>
    <div class="card">
      <label class="item item-input">
-       <span class="input-label">Fist Name</span>
+       <span class="input-label">First Name</span>
        <input type="text" ng-model="user.firstName">
      </label>
      <label class="item item-input">
@@ -13,7 +13,21 @@
        <span class="input-label">Email</span>
        <input type="text" ng-model="user.email">
      </label>
-     <button class="button button-balanced">lender</button>
+       <p class="item item-text-wrap"> Which best describes you?</p>
+       <label class="item item-radio">
+         <input type="radio" name="group">
+         <div class="item-content">
+           Lender
+         </div>
+         <i class="radio-icon ion-checkmark"></i>
+       </label>
+       <label class="item item-radio">
+         <input type="radio" name="group">
+         <div class="item-content">
+           Business
+         </div>
+         <i class="radio-icon ion-checkmark"></i>
+       </label>
      <label class="item item-input">
        <span class="input-label">Organization Name</span>
        <input type="text" ng-model="user.org_name">
@@ -30,10 +44,10 @@
        <span class="input-label">Password</span>
        <input type="password" ng-model="user.password">
      </label>
-   </div>
+    </div>
    <div class="padding">
-     <button class="button button-block button-energized" ng-click="login()">
-       Login
+     <button class="button button-block button-action" ng-click="signup()">
+       Register
      </button>
    </div>
   </ion-content>
