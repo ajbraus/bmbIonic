@@ -9,7 +9,7 @@ angular.module('bankmybiz.controllers', [])
 
   $scope.$on('app.loggedIn', function(event) {
     console.log('LOGGED IN!');
-    $state.go("tab.post");
+    $state.go("tab.post")
   });
 
   $scope.$on('app.loggedOut', function(event) {
@@ -225,7 +225,6 @@ angular.module('bankmybiz.controllers', [])
         },
         function(data) {
           console.log(data)
-          
           // var message = data.data.error
           // console.log(message);
           // navigator.notification.alert(message, null, 'Alert', 'OK');
