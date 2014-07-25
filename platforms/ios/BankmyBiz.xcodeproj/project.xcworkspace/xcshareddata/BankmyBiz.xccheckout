@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>5B264ED4-FEB0-4C80-8227-B0E0BDF6823A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BankmyBiz</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>24CE2C23-A2D4-4A45-8B6D-994C6EE0ED7A</key>
+		<string>https://github.com/ZizhengMG/bmbIonic.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>platforms/ios/BankmyBiz.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>24CE2C23-A2D4-4A45-8B6D-994C6EE0ED7A</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ZizhengMG/bmbIonic.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>24CE2C23-A2D4-4A45-8B6D-994C6EE0ED7A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>24CE2C23-A2D4-4A45-8B6D-994C6EE0ED7A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>bmbIonic</string>
+		</dict>
+	</array>
+</dict>
+</plist>

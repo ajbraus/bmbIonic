@@ -1,0 +1,31 @@
+<!--
+  This template loads for the 'tab.user-detail' state (app.js)
+  'firend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of user data
+-->
+<ion-view title="{{user.name}}" class="view-color-background">
+  <ion-content has-header="true" padding="true">
+    <div class="item item-text-wrap item-thumbnail-left" href="#">
+      <img ng-src="{{user.profile_picture_url}}" class="profile-pic"/>
+      <h2>{{user.name}}, {{user.hq_state}}</h2>
+      <p>{{user.position}} at {{user.org_name}}</p>
+      <div class="row">
+        <div class="col icon ion-pricetags">{{user.cred_count}}</div>
+        <div class="col icon ion-arrow-up-a">{{user.milestones_count}}</div>
+      </div>
+    </div>
+    <div class="item item-text-wrap">
+      <span class="tag" ng-repeat="tag in user.tags">
+        {{tag.name}}
+      </span>
+    </div>
+  	<div class="padding">
+  		<button class="button icon-left ion-ios7-email button-positive" ng-click="modal.show()">Contact
+  		</button>
+  		<button class="pull-right button"> Unfollow
+  		</button>
+  	</div>
+  	<div ng-include src="'templates/user-profile.html'"></div>		
+  </ion-content>
+</ion-view>

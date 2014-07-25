@@ -1,11 +1,14 @@
-// Ionic Starter App
+// Ionic bankmybiz App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// 'bankmybiz' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+// 'bankmybiz.services' is found in services.js
+// 'bankmybiz.controllers' is found in controllers.js
+angular.module('bankmybiz', ['ionic', 'ngResource', 'bankmybiz.controllers',  'bankmybiz.services', 'bankmybiz.interceptors'])
+
+.constant('HOST', 'http://www.bankmybiz.com/api/v1')
+
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -21,6 +24,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 })
 
+
 .config(function($stateProvider, $urlRouterProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
@@ -29,56 +33,153 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // Each state's controller can be found in controllers.js
   $stateProvider
 
+
+
     // setup an abstract state for the tabs directive
     .state('tab', {
       url: "/tab",
       abstract: true,
-      templateUrl: "templates/tabs.html"
+      templateUrl: "templates/tabs.html",
+      controller: "TabsCtrl"
     })
 
     // Each tab has its own nav history stack:
 
-    .state('tab.dash', {
-      url: '/dash',
+    .state('tab.post', {
+      url: '/post',
       views: {
-        'tab-dash': {
-          templateUrl: 'templates/tab-dash.html',
-          controller: 'DashCtrl'
+        'tab-post': {
+          templateUrl: 'templates/tab-post.html',
+          controller: 'PostCtrl'
         }
       }
     })
 
-    .state('tab.friends', {
-      url: '/friends',
-      views: {
-        'tab-friends': {
-          templateUrl: 'templates/tab-friends.html',
-          controller: 'FriendsCtrl'
-        }
-      }
+    .state('login', {
+      url: "/login",
+      templateUrl: "templates/login.html",
+      controller: 'LoginCtrl'
     })
-    .state('tab.friend-detail', {
-      url: '/friend/:friendId',
+
+
+    .state('register-email', {
+      url: "/register-email",
+      templateUrl: "templates/register-email.html",
+      controller: 'RegisterEmailCtrl'
+    })
+    
+    .state('tab.post-detail', {
+      url: '/post-detail/:postId',
       views: {
-        'tab-friends': {
-          templateUrl: 'templates/friend-detail.html',
-          controller: 'FriendDetailCtrl'
+        'tab-post': {
+          templateUrl: 'templates/post-detail.html',
+          controller: 'PostDetailCtrl'
         }
       }
     })
 
-    .state('tab.account', {
-      url: '/account',
+    .state('tab.post-user', {
+      url: '/post-user/:userId',
       views: {
-        'tab-account': {
-          templateUrl: 'templates/tab-account.html',
-          controller: 'AccountCtrl'
+        'tab-post': {
+          templateUrl: 'templates/post-user.html',
+          controller: 'UserDetailCtrl'
+        }
+      }
+    })
+
+
+    .state('tab.post-comment', {
+      url: '/post-comment',
+      views: {
+        'tab-post': {
+          templateUrl: 'templates/post-comment.html',
+          controller: 'PostCommentCtrl'
+        }
+      }
+    })
+
+
+    .state('tab.relationships', {
+      url: '/relationships',
+      views: {
+        'tab-relationships': {
+          templateUrl: 'templates/tab-relationships.html',
+          controller: 'RelationshipsCtrl'
+        }
+      }
+    })
+
+    .state('tab.messages', {
+      url: '/messages',
+      views: {
+        'tab-messages': {
+          templateUrl: 'templates/tab-messages.html',
+          controller: 'MessagesCtrl'
+        }
+      }
+    })
+
+    .state('tab.message-detail', {
+      url: '/message/:messageId',
+      views: {
+        'tab-messages': {
+          templateUrl: 'templates/message-detail.html',
+          controller: 'MessageDetailCtrl'
+        }
+      }
+    })
+
+
+    .state('tab.user-detail', {
+      url: '/user/:userId',
+      views: {
+        'tab-relationships': {
+          templateUrl: 'templates/user-detail.html',
+          controller: 'UserDetailCtrl'
+        }
+      }
+    })
+
+    .state('tab.profile', {
+      url: '/profile',
+      views: {
+        'tab-profile': {
+          templateUrl: 'templates/tab-profile.html',
+          controller: 'ProfileCtrl'
+        }
+      }
+    })
+
+    .state('tab.settings', {
+      url: '/profile-settings',
+      views: {
+        'tab-profile': {
+          templateUrl: 'templates/profile-settings.html',
+          controller: 'ProfileSettingsCtrl'
+        }
+      }
+    })
+
+    .state('tab.agreement', {
+      url: '/settings-agreement',
+      views: {
+        'tab-profile': {
+          templateUrl: 'templates/settings-agreement.html',
+        }
+      }
+    })
+
+    .state('tab.about', {
+      url: '/settings-about',
+      views: {
+        'tab-profile': {
+          templateUrl: 'templates/settings-about.html',
         }
       }
     })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/login');
 
 });
-

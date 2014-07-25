@@ -1,17 +1,22 @@
 <ion-view title="Relationship Pipeline" class="view-color-background">
   <ion-content class="has-header">
 	  <div class="button-bar">
+	  	<div ng-click="showFollowing = false" ng-class="showFollowing ? 'button-stable' : 'button-light'" class="button" href="#">Followers</div>
 		  <div ng-click="showFollowing = true" ng-class="showFollowing ? 'button-light' : 'button-stable'" class="button">Following</div>
-		  <div ng-click="showFollowing = false" ng-class="showFollowing ? 'button-stable' : 'button-light'" class="button" href="#">Followers</div>
 		</div>
-    <ion-list ng-hide="!showFollowing">
-			<a class="item item-avatar" ng-repeat="user in users" href="#/tab/user/{{user.id}}">
-	      <img src="{{user.pic}}" class="profile-pic">
-	      <h2>{{user.name}}, {{user.location}}</h2> 
-	      <p>{{user.position}}, {{user.company}}</p>
+    <ion-list ng-hide="showFollowing"> <!-- followers -->
+			<a class="item item-avatar" ng-repeat="user in followers" href="#/tab/user/{{user.id}}">
+	      <img src="{{user.profile_picture_url}}" class="profile-pic">
+	      <h3>{{user.name}}, {{user.hq_state}}</h3> 
+	      <p>{{user.position}}, {{user.org_name}}</p>
     	</a>
     </ion-list>
-    <ion-list ng-hide="showFollowing">
+    <ion-list ng-hide="!showFollowing">
+			<a class="item item-avatar" ng-repeat="user in followed_users" href="#/tab/user/{{user.id}}">
+	      <img ng-src="{{user.profile_picture_url}}" class="profile-pic">
+	      <h3>{{user.name}}, {{user.hq_state}}</h3> 
+	      <p>{{user.position}}, {{user.org_name}}</p>
+	  	</a>
     </ion-list>
   </ion-content>
 </ion-view>

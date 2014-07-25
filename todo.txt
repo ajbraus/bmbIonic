@@ -1,8 +1,8 @@
 Problem:
 
 relationships + messages: gets Json but not displaying
-profile page not getting data
-
+profile page not getting data [fixed]
+message-detail: get it by id not working
 
 
 
@@ -10,7 +10,7 @@ Critical Path:
 
 sign up page
 sign in page
-  forgot password link [check]
+
 get verified (maybe not in V1.0)
 share button
 voting
@@ -28,6 +28,12 @@ Settings
 CSS
 iCon
 
+
+check mark: grey: not; gold: certified; business: not showing; smaller
+post summary box: Describe your question. [fixed]
+creat button---->post to news feed [fixed]
+pipeline: following default[fixed]; add counts
+icons www [added]
 
 
 

@@ -1,1 +1,111 @@
-/* Empty. Add your own CSS if you like */
+.ion-ios7-chatboxes {
+	color: #009E3B;
+}
+
+.ion-ios7-people {
+	color: #009E3B;
+}
+
+.ion-ios7-compose {
+	color: #009E3B;
+}
+
+.ion-ios7-chatboxes {
+	color: #009E3B;
+}
+
+.ion-ios7-email {
+	color: #009E3B;
+}
+
+.ion-ios7-person {
+	color: #009E3B;
+}
+
+.button-action {
+	background-color: #009E3B;
+	color: white;
+}
+
+.button-action:active {
+	background-color: #009538; 
+	color: white;
+}
+
+.ion-arrow-down-b {
+	color: red;
+}
+
+.bg-image{
+    background-size: cover;
+	height:100%;
+    width:100%;
+}
+
+.img-home{
+	background-image: url("../img/iphone_background.png")
+}
+
+.txt-logo{
+    color: #ffffff;
+}
+
+.login-form {
+	bottom: 125px;
+	width: 300px;
+	position: absolute;
+}
+
+.text-position {
+	position: absolute;
+}
+
+.bottom-buttons {  
+    position: absolute;
+    bottom: 60px;
+}
+
+.profile-pic {
+	border-radius:100px !important;
+}
+
+.pull-right {
+	float:right;
+}
+
+.pull-left {
+	float:left;
+}
+
+.text-height{
+	height: 100px;
+}
+
+.tag{
+	font-size: 15px;
+	color: #009E3B;
+}
+
+.view-color-background{
+	background-color:#eeeeee;
+}
+
+.tab-color-background{
+	background-color:#ffffff;
+}
+
+.message_user_name{
+	font-size: 15px;
+}
+
+.bar-balanced{
+	background-color:#009E3B !important;
+}
+.bar-light{
+	border-bottom: 2px solid black;
+}
+
+.vote-count-position{
+	margin-bottom: 15px;
+}
+

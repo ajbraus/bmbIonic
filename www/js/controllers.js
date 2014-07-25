@@ -127,15 +127,10 @@ angular.module('bankmybiz.controllers', [])
 
 
 .controller('RelationshipsCtrl', function($scope, Relationship) {
-  // console.log(localStorage.getItem("bmb_auth_token"))
-
-  // var auth_token = localStorage.getItem("bmb_auth_token")
-  // $scope.relationship = Relationship.get({id: auth_token});
-
     Relationship.get(function(data) {
-    $scope.relationships = data
+    $scope.followers = data.followers
+    $scope.followed_users = data.followed_users
   });
-
 })
 
 .controller('UserDetailCtrl', function($scope, $stateParams, $ionicModal, $location, User) {
@@ -158,27 +153,25 @@ angular.module('bankmybiz.controllers', [])
 })
 
 .controller('MessagesCtrl', function($scope, Message) {
-  // console.log(localStorage.getItem("bmb_auth_token"))
-
-  // var auth_token = localStorage.getItem("bmb_auth_token")
-  // $scope.messages = Message.get({id: auth_token});
-
   Message.get(function(data) {
-    $scope.messages = data
+    $scope.messages = data.messages
+    $scope.sent_messages = data.sent_messages
   });
 
 })
 
 .controller('MessageDetailCtrl', function($scope, $stateParams, Message) {
-  $scope.message = Message.get($stateParams.messageId);
+$scope.message = Message.get({ id: $stateParams.messageId });
 })
 
 .controller('ProfileCtrl', function($scope, $stateParams, $state, $ionicActionSheet, User) {
   console.log(localStorage.getItem("bmb_auth_token"))
   var auth_token = localStorage.getItem("bmb_auth_token")
   $scope.user = User.get({id: auth_token});
+  
+
   // User.get(function(data) {
-  //   $scope.users = data
+  //   $scope.user = data
   // });
   
 
@@ -222,9 +215,7 @@ angular.module('bankmybiz.controllers', [])
 })
     
 .controller('TabsCtrl', function($scope, $state, $ionicModal, $location, Post) {
-
   $scope.post = {};
-
   $ionicModal.fromTemplateUrl('modal.html', function(modal) {
     $scope.modal = modal;
   }, {
@@ -249,5 +240,4 @@ angular.module('bankmybiz.controllers', [])
       );
     $scope.modal.hide();
   };
-
 });

@@ -4,24 +4,104 @@
   navigation history that also transitions its views in and out.
 -->
 <ion-tabs class="tabs-icon-top">
-
-
-  <!-- Pets Tab -->
-  <ion-tab title="Dashboard" icon="icon ion-home" href="#/tab/dash">
-    <ion-nav-view name="tab-dash"></ion-nav-view>
+  <ion-tab class="tab-color-background" title="News Feed" icon-on="icon ion-ios7-chatboxes" icon-off="icon ion-ios7-chatboxes-outline" href="#/tab/post">
+    <ion-nav-view name="tab-post"></ion-nav-view>
   </ion-tab>
 
-
-  <!-- Adopt Tab -->
-  <ion-tab title="Friends" icon="icon ion-heart" href="#/tab/friends">
-    <ion-nav-view name="tab-friends"></ion-nav-view>
+  <ion-tab class="tab-color-background" title="Pipeline" icon-on="icon ion-ios7-people" icon-off="icon ion-ios7-people-outline" href="#/tab/relationships">
+    <ion-nav-view name="tab-relationships"></ion-nav-view>
   </ion-tab>
 
-
-  <!-- About Tab -->
-  <ion-tab title="Account" icon="icon ion-gear-b" href="#/tab/account">
-    <ion-nav-view name="tab-account"></ion-nav-view>
+  <ion-tab class="tab-color-background" title="New Post" icon-off="icon ion-ios7-compose-outline" icon-on="icon ion-ios7-compose" ng-click="modal.show()">
+    <ion-nav-view name="tab-new-post"></ion-nav-view>
   </ion-tab>
 
+  <ion-tab class="tab-color-background" title="Inbox" icon-on="icon ion-ios7-email" icon-off="icon ion-ios7-email-outline" href="#/tab/messages">
+    <ion-nav-view name="tab-messages"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab class="tab-color-background" title="Profile" icon-on="icon ion-ios7-person" icon-off="icon ion-ios7-person-outline" href="#/tab/profile">
+    <ion-nav-view name="tab-profile"></ion-nav-view>
+  </ion-tab>
 
 </ion-tabs>
+
+  <script id="modal.html" type="text/ng-template">
+    <div class="modal">
+      <ion-header-bar class="bar bar-header bar-light">
+        <h1 class="title">New Post</h1>
+        <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+      </ion-header-bar>
+      <ion-content>
+        <div class="padding">
+          <div class="list">
+            <label class="item item-input item-select">
+                <div class="input-label">
+                  Type of Post
+                </div>
+                <select>
+                  <option selected> Ask a Question</option>
+                  <option>Mark a Milestone</option>
+                  <option>Celebrate New Financing</option>
+                  <option>Announcement</option>
+                </select>
+            </label>
+            <label class="item item-input">
+              <input ng-model="post.title" type="text" placeholder="Title">
+            </label>
+            <label class="item item-input item-text-wrap">
+              <textarea class="text-height" ng-model="post.content" placeholder="Tell us the details of your post. Who are you working with? Did you get an loan? Congrats! How much? Can you include any links? Be as specific as possible.">
+              </textarea>
+            </label>
+            <label class="item item-input">
+              <input ng-model="post.tag_list" type="text" placeholder="Tags">
+            </label>
+            <button class="button button-full button-action" ng-click="createPost()">Create</button>
+          </div>
+        </div>
+      </ion-content>
+    </div>
+  </script>
+
+  <script id="modal_contact.html" type="text/ng-template">
+    <div class="modal">
+      <ion-header-bar class="bar bar-header bar-light">
+        <h1 class="title">New Message</h1>
+        <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+      </ion-header-bar>
+      <ion-content>
+        <form ng-submit="createMessage()">
+          <div class="list padding">
+            <label class="item item-input">
+              <input ng-model="post.title" type="text" placeholder="Title" required>
+            </label>
+            <label class="item item-input item-text-wrap">
+              <textarea class="text-height" ng-model="post_contact.description" placeholder="Type your messages here!">
+              </textarea>
+            </label>
+            <button class="button button-full button-action button-balanced" type="submit">Send</button>
+          </div>
+        </form>
+      </ion-content>
+    </div>
+  </script>
+
+  <script id="modal_advice.html" type="text/ng-template">
+    <div class="modal">
+      <ion-header-bar class="bar bar-header bar-light">
+        <h1 class="title">Give Advice</h1>
+        <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+      </ion-header-bar>
+      <ion-content>
+        <div class="padding">
+          <div class="list">
+            <label class="item item-input item-text-wrap">
+              <textarea class="text-height" ng-model="advice.description" placeholder="Post your advice">
+              </textarea>
+            </label>
+            <button class="button button-full button-action" ng-click="createAdvice()">Give Advice</button>
+          </div>
+        </div>
+      </ion-content>
+    </div>
+  </script>
