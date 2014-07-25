@@ -1,3 +1,11 @@
+Problem:
+
+relationships + messages: gets Json but not displaying
+profile page not getting data
+
+
+
+
 Critical Path:
 
 sign up page

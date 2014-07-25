@@ -127,10 +127,14 @@ angular.module('bankmybiz.controllers', [])
 
 
 .controller('RelationshipsCtrl', function($scope, Relationship) {
-  console.log(localStorage.getItem("bmb_auth_token"))
+  // console.log(localStorage.getItem("bmb_auth_token"))
 
-  var auth_token = localStorage.getItem("bmb_auth_token")
-  $scope.relationship = Relationship.get({id: auth_token});
+  // var auth_token = localStorage.getItem("bmb_auth_token")
+  // $scope.relationship = Relationship.get({id: auth_token});
+
+    Relationship.get(function(data) {
+    $scope.relationships = data
+  });
 
 })
 
@@ -154,7 +158,14 @@ angular.module('bankmybiz.controllers', [])
 })
 
 .controller('MessagesCtrl', function($scope, Message) {
-  $scope.messages = Message.all()
+  // console.log(localStorage.getItem("bmb_auth_token"))
+
+  // var auth_token = localStorage.getItem("bmb_auth_token")
+  // $scope.messages = Message.get({id: auth_token});
+
+  Message.get(function(data) {
+    $scope.messages = data
+  });
 
 })
 
@@ -166,6 +177,11 @@ angular.module('bankmybiz.controllers', [])
   console.log(localStorage.getItem("bmb_auth_token"))
   var auth_token = localStorage.getItem("bmb_auth_token")
   $scope.user = User.get({id: auth_token});
+  // User.get(function(data) {
+  //   $scope.users = data
+  // });
+  
+
   $scope.settings = function() {
     $state.go('tab.settings');
   }
