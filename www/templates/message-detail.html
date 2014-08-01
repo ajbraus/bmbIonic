@@ -1,15 +1,26 @@
-<ion-view title="{{message.sender_name}}" class="view-color-background">
+<ion-view title="Message" class="view-color-background">
 	<ion-content>
-		<div class="card">
-		<a class="item item-avatar">
-	    <img src="{{user.pic}}" class="profile-pic">
-	    <p>{{message.sender_name}}</p> 
-	    <p>{{user.position}}, {{user.company}}</p>
-		</a>
+		<div class="card" ng-repeat="message in message">
+		<div class="item item-avatar">
+	    <img src="{{message.profile_picture_url}}" class="profile-pic">
+	    <h3>From {{message.sender_name}} to {{message.receiver_name}}</h3>
+		</div>
 		<div class="item item-text-wrap">
+			<h2>{{message.subject}}</h2>
 			<p>{{message.body}}</p>
 		</div>
-			<a class="button button-clear icon ion-reply pull-right button-balanced" href="#/tab/post-comment"> Reply</a>
 		</div>
+		<form ng-submit="createMessage()">
+      <div class="card">
+        <label class="item item-input">
+          <input ng-model="reply.title" type="text" placeholder="Subject" required>
+        </label>
+        <label class="item item-input item-text-wrap">
+          <textarea class="text-height" ng-model="message.reply.body" placeholder="Reply here">
+          </textarea>
+        </label>
+        <button class="button button-full button-action" type="submit">Reply</button>
+      </div>
+    </form>
 	</ion-content>
 </ion-view>

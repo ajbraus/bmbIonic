@@ -89,16 +89,25 @@ angular.module('bankmybiz', ['ionic', 'ngResource', 'bankmybiz.controllers',  'b
     })
 
 
-    .state('tab.post-comment', {
-      url: '/post-comment',
+    .state('tab.post-answer-comment', {
+      url: '/post-answer-comment/:postId',
       views: {
         'tab-post': {
-          templateUrl: 'templates/post-comment.html',
-          controller: 'PostCommentCtrl'
+          templateUrl: 'templates/post-answer-comment.html',
+          controller: 'PostDetailCtrl'
         }
       }
     })
 
+    .state('tab.post-comment', {
+      url: '/post-comment/:postId',
+      views: {
+        'tab-post': {
+          templateUrl: 'templates/post-comment.html',
+          controller: 'PostDetailCtrl'
+        }
+      }
+    })
 
     .state('tab.relationships', {
       url: '/relationships',
@@ -175,6 +184,16 @@ angular.module('bankmybiz', ['ionic', 'ngResource', 'bankmybiz.controllers',  'b
       views: {
         'tab-profile': {
           templateUrl: 'templates/settings-about.html',
+        }
+      }
+    })
+
+    .state('tab.update-profile', {
+      url: '/settings-update-profile',
+      views: {
+        'tab-profile': {
+          templateUrl: 'templates/settings-update-profile.html',
+          controller: 'ProfileCtrl'
         }
       }
     })

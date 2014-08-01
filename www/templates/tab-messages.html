@@ -1,13 +1,26 @@
 <ion-view title="Inbox" class="view-color-background">
-	<ion-content>
-	<div class="list">
-	    <a class="item item-avatar" ng-repeat="message in messages" href="#/tab/message/{{message.id}}">
-	      <img ng-src="{{message.profile_picture_url}}" class="profile-pic">
+	<ion-content class="has-header">
+	  <div class="button-bar">
+	  	<div ng-click="showInbox = false" ng-class="showInbox ? 'button-stable' : 'button-light'" class="button" href="#">Inbox ({{messages.length}})</div>
+		  <div ng-click="showInbox = true" ng-class="showInbox ? 'button-light' : 'button-stable'" class="button">Sent ({{sent_messages.length}})</div>
+		</div>
+	  <ion-list ng-hide="showInbox"> <!-- inbox -->
+			<a class="item item-avatar" ng-repeat="message in messages" href="#/tab/message/{{message.id}}">
+				<img ng-src="{{message.profile_picture_url}}" class="profile-pic">
+        <button class="button button-clear pull-right ion-chevron-right">
+        </button>
+        <h3>{{message.sender_name}}</h3>
+        <p>{{message.subject}}</p>
+			</a>
+	  </ion-list>
+	  <ion-list ng-hide="!showInbox">
+			<a class="item item-avatar" ng-repeat="sent_message in sent_messages" href="#/tab/message/{{message.id}}">
+				<img ng-src="{{sent_message.profile_picture_url}}" class="profile-pic">
 	      <button class="button button-clear pull-right ion-chevron-right">
 	      </button>
-	      <h3>{{message.sender_name}}</h3>
-	      <p>{{message.subject}}</p>
-	    </a>
-	</div>
-	</ion-content>
+	      <h3>{{sent_message.sender_name}}</h3>
+	      <p>{{sent_message.subject}}</p>
+			</a>
+	  </ion-list>
+	</ion-content>	
 </ion-view>

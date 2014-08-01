@@ -40,15 +40,43 @@ angular.module('bankmybiz.services', [])
   })
 
 .factory("Post", function($resource, HOST) {
-  return $resource(HOST + '/posts/:id', { id: '@id'})
+  return $resource(HOST + '/posts/:id', { id: '@id'}, {
+    vote_up: { url: HOST + '/posts/:id/vote_up', method: "GET", isArray: false},
+    vote_down: { url: HOST + '/posts/:id/vote_down', method: "GET", isArray: false}
+  })
   // Post.query => '/posts' (GET) -> index
   // Post.save => '/posts' (POST) -> create
   // Post.delete => '/posts/:id' (DELETE) -> destroy
   // Post.get => '/posts/:id' (GET) -> show
 })
 
+.factory("Answer", function($resource, HOST) {
+  return $resource(HOST + '/answers/:id', { id: '@id'}, {
+    vote_up: { url: HOST + '/answers/:id/vote_up', method: "GET", isArray: false},
+    vote_down: { url: HOST + '/answers/:id/vote_down', method: "GET", isArray: false}
+  })
+  // Answer.query => '/posts' (GET) -> index
+  // Answer.save => '/posts' (POST) -> create
+  // Answer.delete => '/posts/:id' (DELETE) -> destroy
+  // Answer.get => '/posts/:id' (GET) -> show
+})
+
+.factory("Comment", function($resource, HOST) {
+  return $resource(HOST + '/comments/:commentableId', { id: '@id'}, {
+    vote_up: { url: HOST + '/comments/:id/vote_up', method: "GET", isArray: false},
+    vote_down: { url: HOST + '/comments/:id/vote_down', method: "GET", isArray: false}
+  })
+  // Answer.query => '/posts' (GET) -> index
+  // Answer.save => '/posts' (POST) -> create
+  // Answer.delete => '/posts/:id' (DELETE) -> destroy
+  // Answer.get => '/posts/:id' (GET) -> show
+})
+
+//change it to receiving array
 .factory("Message", function($resource, HOST) {
-  return $resource(HOST + '/messages/:id', { id: '@id'})
+  return $resource(HOST + '/messages/:id', { id: '@id'}, {
+     query: {method:'GET', isArray:true}
+  })
   })
 
 .factory('Vote', function() {

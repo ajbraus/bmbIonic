@@ -1,3 +1,14 @@
+comment id
+type "Post"
+
+answer: postid body
+
+follower/following counting [done]
+give advice working
+comment page
+
+
+
 Problem:
 
 relationships + messages: gets Json but not displaying
@@ -8,6 +19,8 @@ message-detail: get it by id not working
 
 Critical Path:
 
+
+put users into pipeline 
 sign up page
 sign in page
 
@@ -18,15 +31,15 @@ post advice submit
 comment
   comment page
   post comment
-pipeline auth_token
-post submit
-inbox
+pipeline auth_token [done]
+post submit [done]
+inbox 
 Settings
   update profile
   contact
   privacy
-CSS
-iCon
+CSS [done]
+iCon [done]
 
 
 check mark: grey: not; gold: certified; business: not showing; smaller

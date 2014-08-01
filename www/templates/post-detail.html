@@ -12,37 +12,36 @@
 					<a class="button button-clear button-balanced icon ion-arrow-down-b" ng-click="votePostDown()"></a>
 				</div>
 				<div class="pull-right">
-					<a class="button button-clear button-balanced icon ion-chatbox" href="#/tab/post-comment"> comment</a>
+					<a class="button button-clear button-balanced icon ion-chatbox" href="#/tab/post-comment/{{post.id}}"> {{post.comments.length}} comment(s)</a>
 				</div>	
 			</div>
-
-			<a class="item item-avatar item-text-wrap" href="#/tab/post-user/{{user.id}}">
+			<a class="item item-avatar item-text-wrap" href="#/tab/post-user/{{post.user.id}}">
 				<img src="{{post.user.profile_image_url}}" class="profile-pic">
 			  <h2>{{post.user.first_name_with_last_initial}},  {{post.user.hq_state}}</h2>
 			  <p>{{post.user.position}} at {{post.user.org_name}}</p>
 			</a>
 		</div>
-			<div class="padding">
-				<button class="button icon ion-ios7-chatbubble button-block button-action" ng-click="modal.show()">
-				  Give Advice
-				</button>
-			</div>
-
+		<div class="padding">
+			<button class="button icon ion-ios7-chatbubble button-block button-action" ng-click="modal.show()">
+			  Give Advice
+			</button>
+		</div>
 		<div class="card" ng-repeat="answer in post.answers">
+			<div class="item item-divider">Advice</div>
 			<div class="item item-text-wrap">
 				<p>{{answer.body}}</p>
 			</div>
 			<div class="item">
 				<div class="pull-left">
-					<a class="button button-clear button-balanced icon ion-arrow-up-b" ng-click="votePostUp()"></a>
+					<a class="button button-clear button-balanced icon ion-arrow-up-b" ng-click="voteAnswerUp(answer.id)"></a>
 					<span class="vote-count-position">{{answer.vote_count}}</span>
-					<a class="button button-clear button-balanced icon ion-arrow-down-b" ng-click="votePostDown()"></a>
+					<a class="button button-clear button-balanced icon ion-arrow-down-b" ng-click="voteAnswerDown(answer.id)"></a>
 				</div>
 				<div class="pull-right">
-					<a class="button button-clear button-balanced icon ion-chatbox" href="#/tab/post-comment"> comment</a>
+					<a class="button button-clear button-balanced icon ion-chatbox" href="#/tab/post-answer-comment/{{post.id}}"> {{answer.comments.length}} comment(s)</a>
 				</div>	
 			</div>
-			<a class="item item-avatar item-text-wrap" href="#/tab/post-user/{{user.id}}">
+			<a class="item item-avatar item-text-wrap" href="#/tab/post-user/{{answer.user.id}}">
 	  		<img src="{{answer.user.profile_image_url}}", class="profile-pic">
 	  	  <h2>{{answer.user.first_name_with_last_initial}},  {{answer.user.location}}</h2>
 	  	  <p>{{answer.user.position}} at {{answer.user.org_name}}</p>

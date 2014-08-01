@@ -1,29 +1,31 @@
 <ion-view title="Comment" class="view-color-background">
 	<ion-content>
-		<div class="card">
+		<div class="card" ng-repeat="comment in post.comments">
+			<div class="item item-divider"></div>
 			<div class="item item-text-wrap">
-				<p>{{answer.body}}</p>
+				<p>{{comment.content}}</p>
 			</div>
 			<div class="item">
 				<div class="pull-left">
-					<a class="button button-clear button-balanced icon ion-arrow-up-b"></a>
-					<span class="vote-count-position">5</span>
-					<a class="button button-clear button-balanced icon ion-arrow-down-b"></a>
+					<a class="button button-clear button-balanced icon ion-arrow-up-b" ng-click="voteAnswerUp(answer.id)"></a>
+					<span class="vote-count-position">{{comment.vote_count}}</span>
+					<a class="button button-clear button-balanced icon ion-arrow-down-b" ng-click="voteAnswerDown(answer.id)"></a>
 				</div>
 			</div>
 			<a class="item item-avatar" href="#/tab/post-user/{{user.id}}">
-	  		<img src="{{answer.user.pic}}", class="profile-pic">
-	  	  <h2>{{answer.user.name}},  {{answer.user.location}}</h2>
-	  	  <p>{{answer.user.position}} at {{answer.user.org_name}}</p>
-	  	</a>
+	  		<img src="{{comment.user.profile_image_urll}}", class="profile-pic">
+	  	  <h2>{{comment.user.first_name_with_last_initial}},  {{comment.user.location}}</h2>
+	  	  <p>{{comment.user.position}} at {{comment.user.org_name}}</p>
+	  	</a>	
 		</div>
-		<div class="item item-text-wrap">
-	    <item class="item-input-wrapper">
-	      <input type="text" placeholder="Comment here">
-	    </item>
-	    <button class="button button-clear button-small">
-	      Comment
-	    </button>
-		 </div>
+		<form ng-submit="createComment()">
+		  <div class="card">
+		    <label class="item item-input item-text-wrap">
+		      <textarea class="text-height" ng-model="post.comment" placeholder="Comment here">
+		      </textarea>
+		    </label>
+		    <button class="button button-full button-action" type="submit">Comment</button>
+		  </div>
+		</form>
 	</ion-content/>
 </ion-view>

@@ -1,0 +1,33 @@
+<ion-view title="Comment" class="view-color-background">
+	<ion-content>
+		<div ng-repeat="answer in post.answers">
+	  	<div class="card" ng-repeat="comment in answer.comments">
+	  		<div class="item item-divider"></div>
+	  		<div class="item item-text-wrap">
+	  			<p>{{comment.content}}</p>
+	  		</div>
+	  		<div class="item">
+	  			<div class="pull-left">
+	  				<a class="button button-clear button-balanced icon ion-arrow-up-b" ng-click="voteAnswerUp(answer.id)"></a>
+	  				<span class="vote-count-position">{{comment.vote_count}}</span>
+	  				<a class="button button-clear button-balanced icon ion-arrow-down-b" ng-click="voteAnswerDown(answer.id)"></a>
+	  			</div>
+	  		</div>
+	  		<a class="item item-avatar" href="#/tab/post-user/{{comment.user.id}}">
+	    		<img src="{{comment.user.profile_image_url}}", class="profile-pic">
+	    	  <h2>{{comment.user.first_name_with_last_initial}},  {{comment.user.location}}</h2>
+	    	  <p>{{comment.user.position}} at {{comment.user.org_name}}</p>
+	    	</a>
+	  	</div>	
+		</div>
+		<form ng-submit="createAnswerComment()">
+		  <div class="card">
+		    <label class="item item-input item-text-wrap">
+		      <textarea class="text-height" ng-model="post.answer.comment" placeholder="Comment here">
+		      </textarea>
+		    </label>
+		    <button class="button button-full button-action" type="submit">Comment</button>
+		  </div>
+		</form>
+	</ion-content/>
+</ion-view>
