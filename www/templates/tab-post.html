@@ -1,8 +1,4 @@
 <ion-view title="News Feed" class="view-color-background">
-	<ion-nav-buttons side="left">
-	  <button class="button icon ion-checkmark-circled button-clear" ng-click="newSubscription()">
-	  </button>
-	</ion-nav-buttons>
   <ion-content>
 		<div class="card" ng-repeat="post in posts" href="#">
 			<a class="item item-text-wrap" href="#/tab/post-detail/{{post.id}}">

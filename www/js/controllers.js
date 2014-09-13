@@ -83,12 +83,11 @@ angular.module('bankmybiz.controllers', [])
   }
 })
 
-.controller('PostDetailCtrl', function($scope, $stateParams, $ionicModal, $location, Post, Answer) {
+.controller('PostDetailCtrl', function($scope, $stateParams, $ionicModal, $state, $location, Post, Answer, User) {
   
   $scope.post = Post.get({ id: $stateParams.postId });
-  $scope.answer = Answer.get({ id: $stateParams.answerId });
-  $scope.answer = {};
 
+  $scope.answer = { post_id: $stateParams.postId, body: "" };
 
   $scope.votePostUp = function() {
     Post.vote_up({id: $scope.post.id}, function() {
@@ -128,17 +127,10 @@ angular.module('bankmybiz.controllers', [])
   });
 
   $scope.createAdvice = function() {
-      Answer.save({},$scope.answer,
+    console.log($scope.answer)
+      Answer.save({}, $scope.answer,
         function(data) {
-          localStorage.setItem("bmb_auth_token", data.auth_token);     
-          $location.path("/post-detail/:postId");
-        },
-        function(data) {
-          console.log(data)
-          // var message = data.data.error
-          // console.log(message);
-          // navigator.notification.alert(message, null, 'Alert', 'OK');
-        
+          $state.go('tab.post-detail');
         }
       );
     $scope.modal.hide();
@@ -247,16 +239,8 @@ $scope.message = Message.query({ id: $stateParams.messageId });
 
   $scope.createPost = function() {
       Post.save({},$scope.post,
-        function(data) {
-          localStorage.setItem("bmb_auth_token", data.auth_token);     
+        function(data) {   
           $state.go('tab.post');
-        },
-        function(data) {
-          console.log(data)
-          // var message = data.data.error
-          // console.log(message);
-          // navigator.notification.alert(message, null, 'Alert', 'OK');
-        
         }
       );
     $scope.modal.hide();

@@ -6,7 +6,6 @@ angular.module('bankmybiz.interceptors', []).
     $provide.factory('AuthHttpInterceptor', function ($q, HOST, $location, $rootScope) {
      return {
        // optional method
-       
        'request': function(config) {
     	  // Check if there's network connection:
     	  // http://plugins.cordova.io/#/package/org.apache.cordova.network-information
@@ -30,13 +29,11 @@ angular.module('bankmybiz.interceptors', []).
          // do something on success
          return config || $q.when(config);
        },
-
        // optional method
        'response': function(response) {
          // $rootScope.hideLoading();
          return response || $q.when(response);
        },
-
        // optional method
       'responseError': function(rejection) {
         // $rootScope.hideLoading();
@@ -46,7 +43,6 @@ angular.module('bankmybiz.interceptors', []).
            $rootScope.$broadcast('app.loggedOut'); 
            $location.path('/login'); 
          }
-
          // if (canRecover(rejection)) {
          //   return responseOrNewPromise;
          // }
@@ -54,7 +50,6 @@ angular.module('bankmybiz.interceptors', []).
        }
      };
     });
-
     $httpProvider.interceptors.push('AuthHttpInterceptor');
 
   });

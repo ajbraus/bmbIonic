@@ -48,4 +48,22 @@
     	</a>
 		</div>
 	</ion-content>
-</ion-view>
+</ion-view>  <script id="modal_advice.html" type="text/ng-template">
+    <div class="modal">
+      <ion-header-bar class="bar bar-header bar-light">
+        <h1 class="title">Give Advice</h1>
+        <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+      </ion-header-bar>
+      <ion-content>
+        <div class="padding">
+          <div class="list">
+            <label class="item item-input item-text-wrap">
+              <textarea class="text-height" ng-model="answer.body" placeholder="Post your advice">
+              </textarea>
+            </label>
+            <button class="button button-full button-action" ng-click="createAdvice()">Give Advice</button>
+          </div>
+        </div>
+      </ion-content>
+    </div>
+  </script>

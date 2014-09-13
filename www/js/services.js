@@ -74,9 +74,7 @@ angular.module('bankmybiz.services', [])
 
 //change it to receiving array
 .factory("Message", function($resource, HOST) {
-  return $resource(HOST + '/messages/:id', { id: '@id'}, {
-     query: {method:'GET', isArray:true}
-  })
+  return $resource(HOST + '/messages/:id', { id: '@id'})
   })
 
 .factory('Vote', function() {

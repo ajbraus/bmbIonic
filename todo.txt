@@ -1,3 +1,35 @@
+commnets on the post-detail same page.
+
+Tasks:
+Linkined registration [Adam]
+comments POST  pop-up [Zizheng]
+messages [Adam]
+voting post, post-comments, answers, answer-comments
+follow/unfollow 
+hide/show button for contact
+post then logged out (error)
+edit profile
+  -when register, go to update profile page.
+advice POST 
+share plugin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 comment id
 type "Post"
 
@@ -88,28 +120,6 @@ Navigation for all views
 			- Terms of Service [DONE]
 			- Logout
 
-
-structure tree
-
-user
-	name
-	cred_count
-
-
-conversation (array)
-	message
-		id
-		content
-
-
-* try query for users
-* create the log in page
-* try auth
-
-* try to finish javascript
-* go through to implement data (d3.js)
-* scratch for the DataServe 
-
 ---------------------------------------------------------------------------------
 
 Forms w cancel buttons
@@ -141,12 +151,6 @@ bank vs. business - user.bank = true | false - ng-show="user.bank && !user.certi
 
 Tag: when click, swipe left to create a news feed page about all the posts relating to the tag.
 
-Search bar
-
-get the api for YouTube course done
-
-check out teamtreehouse
-
 
 
 ------------------------------------------------------------------------------------
@@ -169,12 +173,6 @@ voting: all votes increase
 Done:
 
 06.24: post-detail CSS
-
-
-
-
-
-
 
 
   var posts = [
